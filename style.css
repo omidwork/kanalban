@@ -1,0 +1,218 @@
+:root {
+    --bg-page: var(--tg-theme-bg-color, #f5f7fb);
+    --card-bg: var(--tg-theme-secondary-bg-color, #ffffff);
+    --text-color: var(--tg-theme-text-color, #1a1a2e);
+    --text-muted: #6c757d;
+    --primary: var(--tg-theme-button-color, #2a7f6e);
+    --primary-dark: #1e5f52;
+    --border: #e9ecef;
+    --shadow: 0 8px 20px rgba(0,0,0,0.05);
+    --radius: 24px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--bg-page);
+    color: var(--text-color);
+    direction: rtl;
+    padding-bottom: 70px;
+}
+
+.app-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 16px;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    background: var(--card-bg);
+    padding: 12px 16px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+.user-name {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+.user-status {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: 0.2s;
+}
+.close-btn:hover {
+    color: #e74c3c;
+}
+
+/* Welcome Card */
+.welcome-card {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    padding: 24px;
+    border-radius: var(--radius);
+    text-align: center;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow);
+}
+.welcome-card h2 {
+    margin-bottom: 8px;
+}
+
+/* Panels */
+.panel {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+    animation: fadeIn 0.3s ease;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+.hidden {
+    display: none;
+}
+
+/* Buttons */
+.btn-primary, .btn-secondary {
+    padding: 12px 16px;
+    border: none;
+    border-radius: 40px;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+    transition: 0.2s;
+    margin-top: 12px;
+}
+.btn-primary {
+    background: var(--primary);
+    color: white;
+}
+.btn-primary:hover {
+    background: var(--primary-dark);
+    transform: scale(0.98);
+}
+.btn-secondary {
+    background: #e9ecef;
+    color: #333;
+}
+.btn-secondary:hover {
+    background: #dee2e6;
+}
+
+/* Inputs */
+.select-input, textarea, .date-input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    font-family: inherit;
+    background: var(--bg-page);
+    color: var(--text-color);
+}
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 12px 0;
+}
+.button-group {
+    margin: 16px 0;
+}
+
+/* Lists */
+.channels-list, .schedule-list {
+    list-style: none;
+}
+.channels-list li, .schedule-list li {
+    padding: 12px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--card-bg);
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 16px;
+    border-top: 1px solid var(--border);
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.05);
+    z-index: 100;
+}
+.nav-btn {
+    background: none;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.nav-btn.active {
+    color: var(--primary);
+    transform: translateY(-2px);
+}
+.nav-icon {
+    font-size: 24px;
+}
+
+/* Toast */
+.toast {
+    position: fixed;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.8);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 40px;
+    font-size: 0.9rem;
+    z-index: 200;
+    white-space: nowrap;
+}
+.toast.hidden {
+    display: none;
+}
+
+/* Fake chart */
+.fake-chart {
+    height: 100px;
+    background: repeating-linear-gradient(45deg, #ddd, #ddd 10px, #eee 10px, #eee 20px);
+    border-radius: 16px;
+    margin-top: 12px;
+}

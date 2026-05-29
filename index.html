@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>کانالبان | مدیریت کانال ایتا</title>
+    <script src="https://developer.eitaa.com/eitaa-web-app.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- هدر با دکمه بستن و نام کاربر -->
+        <header>
+            <div class="user-info" id="user-info">
+                <span class="user-name">کاربر</span>
+                <span class="user-status">مدیر کانال‌ها</span>
+            </div>
+            <button id="close-btn" class="close-btn" aria-label="بستن برنامک">✕</button>
+        </header>
+
+        <!-- محتوای اصلی -->
+        <main id="main-content">
+            <div class="welcome-card">
+                <h2>به کانالبان خوش آمدی 👋</h2>
+                <p>ابزار حرفه‌ای مدیریت کانال‌های ایتا</p>
+            </div>
+
+            <!-- پنل کانال‌ها -->
+            <div id="channels-panel" class="panel hidden">
+                <h3>📡 کانال‌های من</h3>
+                <ul id="channels-list" class="channels-list"></ul>
+                <button id="refresh-channels" class="btn-secondary">🔄 بازخوانی</button>
+            </div>
+
+            <!-- پنل پیام جدید -->
+            <div id="message-panel" class="panel hidden">
+                <h3>✏️ ارسال پیام جدید</h3>
+                <select id="chat-select" class="select-input"></select>
+                <textarea id="message-text" placeholder="متن پیام را بنویسید..." rows="4"></textarea>
+                <div class="options">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="pin-message"> 📌 سنجاق در کانال
+                    </label>
+                </div>
+                <div class="button-group">
+                    <button id="send-now" class="btn-primary">📤 ارسال الآن</button>
+                </div>
+                <div class="schedule-area">
+                    <input type="datetime-local" id="schedule-time" class="date-input">
+                    <button id="schedule-post" class="btn-secondary">⏰ زمان‌بندی ارسال</button>
+                </div>
+            </div>
+
+            <!-- پنل صف ارسال -->
+            <div id="schedule-panel" class="panel hidden">
+                <h3>⏰ پست‌های زمان‌بندی شده</h3>
+                <ul id="schedule-list" class="schedule-list"></ul>
+            </div>
+
+            <!-- پنل آمار (پیش‌نمایش) -->
+            <div id="stats-panel" class="panel hidden">
+                <h3>📊 آمار کانال‌ها</h3>
+                <div id="stats-placeholder">
+                    <p>به زودی... 📈</p>
+                    <div class="fake-chart"></div>
+                </div>
+            </div>
+        </main>
+
+        <!-- منوی پایین ناوبری -->
+        <nav class="bottom-nav">
+            <button data-panel="channels" class="nav-btn">
+                <span class="nav-icon">📡</span>
+                <span>کانال‌ها</span>
+            </button>
+            <button data-panel="message" class="nav-btn">
+                <span class="nav-icon">✏️</span>
+                <span>پیام</span>
+            </button>
+            <button data-panel="schedule" class="nav-btn">
+                <span class="nav-icon">⏰</span>
+                <span>صف ارسال</span>
+            </button>
+            <button data-panel="stats" class="nav-btn">
+                <span class="nav-icon">📊</span>
+                <span>آمار</span>
+            </button>
+        </nav>
+    </div>
+
+    <div id="toast-message" class="toast hidden"></div>
+    <script src="script.js"></script>
+</body>
+</html>
